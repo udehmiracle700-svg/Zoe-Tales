@@ -1,0 +1,56 @@
+:root {
+  font-family: 'Aptos', 'Segoe UI', sans-serif;
+  color: #274437;
+  background: #fff8e9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --cream: #fff5e2;
+  --forest: #104c3c;
+  --forest-dark: #0c4034;
+  --gold: #e0a936;
+  --gold-deep: #b9852d;
+  --sage: #ebeedb;
+  --muted: #716e62;
+  --sans: 'Aptos', 'Segoe UI', sans-serif;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+
+  font-optical-sizing: auto;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cream);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d99e29;
+  outline-offset: 4px;
+}
+
+::selection {
+  color: #fff8e9;
+  background: #27755b;
+}
