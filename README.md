@@ -1,6 +1,6 @@
-# ZoeTales
+# Zoe-Tales
 
-A responsive React landing page for ZoeTales, a Bible-storytelling brand for
+ZoeTales is a responsive React landing page for a Bible-storytelling brand for
 children and families.
 
 ## Run locally
