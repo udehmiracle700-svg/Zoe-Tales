@@ -17,6 +17,6 @@ npm run build
 npm run preview
 ```
 
-The homepage includes the story collection, responsive navigation, and
-accessible story-preview dialogs. Its visual assets are local SVG files, so
-the design does not rely on an external image service.
+The home page at `/` presents the Bible story collection. The separate
+activities page is available at `/activities`. Both pages use responsive
+navigation and local visual assets, with no external image service.

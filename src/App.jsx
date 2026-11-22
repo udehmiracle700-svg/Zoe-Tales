@@ -1,369 +1,308 @@
 import { useEffect, useRef, useState } from 'react'
-import heroImage from './assets/storybook-forest.svg'
+import homeHeroImage from './assets/home-hero.jpg'
+import activitiesHeroImage from './assets/activities-hero.jpg'
+import noahImage from './assets/noah-story.jpg'
+import davidImage from './assets/david-story.jpg'
+import creationImage from './assets/creation-story.jpg'
+import familyReadingImage from './assets/family-reading.jpg'
 import './App.css'
 
 const navigation = [
-  { label: 'Home', href: '#home' },
-  { label: 'Bible stories', href: '#stories' },
-  { label: 'Watch & listen', href: '#watch' },
-  { label: 'Explore & learn', href: '#values' },
-  { label: 'About us', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-]
-
-const values = [
-  'Rooted in Scripture',
-  'Made for little hearts',
-  'Loved by the whole family',
-  'Wonder in every story',
+  { label: 'Home', href: '/' },
+  { label: 'Bible Stories', href: '/#stories', view: 'home' },
+  { label: 'Watch & Listen', href: '/activities#watch', view: 'activities' },
+  { label: 'Explore & Learn', href: '/activities#explore', view: 'activities' },
+  { label: 'About Us', href: '/#about', view: 'home' },
+  { label: 'Contact', href: '/activities#contact', view: 'activities' },
 ]
 
 const stories = [
   {
-    title: "Noah's big boat",
-    category: 'A promise to remember',
-    reference: 'Genesis 6–9',
-    description:
-      'When the rain came, Noah trusted God and cared for every creature aboard the ark. After the storm, a rainbow reminded the whole world of God’s faithful promise.',
-    art: 'ark',
-    number: '01',
+    ages: 'Genesis 6–9 · Trust',
+    title: 'Noah & the great adventure',
+    description: 'Discover what happens when we trust God',
+    action: 'Watch story',
+    image: noahImage,
   },
   {
-    title: "Esther's brave heart",
-    category: 'Courage for a moment',
-    reference: 'Esther 4–7',
-    description:
-      'Esther found the courage to speak up for her people. Her story reminds little hearts that doing what is right can be brave—and that we are never alone.',
-    art: 'esther',
-    number: '02',
+    ages: '1 Samuel 17 · Courage',
+    title: 'David & a courageous heart',
+    description: 'A little faith can face the biggest giants',
+    action: 'Watch story',
+    image: davidImage,
   },
   {
-    title: 'The lost little lamb',
-    category: 'A love that finds us',
-    reference: 'Luke 15:3–7',
-    description:
-      'Jesus told of a shepherd who searched until every sheep was safely home. It is a tender picture of how deeply God loves and cares for each one of us.',
-    art: 'lamb',
-    number: '03',
+    ages: 'Genesis 1–2 · Wonder',
+    title: 'The wonder of creation',
+    description: 'Discover the beautiful world God made',
+    action: 'Watch story',
+    image: creationImage,
+  },
+]
+
+const activities = [
+  {
+    label: 'Create & share',
+    ages: 'Ages 5–9',
+    title: 'A rainbow to remember',
+    description: "Bring Noah's story to life with a colorful reminder of God's promise.",
+    action: 'View activity',
+    image: noahImage,
   },
   {
-    title: "David's giant-sized faith",
-    category: 'Small can be mighty',
-    reference: '1 Samuel 17',
-    description:
-      'David stepped forward with a brave heart and a trust bigger than his fear. His story shows us that God can work through anyone, no matter how small.',
-    art: 'david',
-    number: '04',
+    label: 'Talk & wonder',
+    ages: 'Ages 3–8',
+    title: 'My little courage cards',
+    description: 'Make conversation cards about being brave and trusting God.',
+    action: 'Family activity',
+    image: davidImage,
+  },
+  {
+    label: 'Explore & discover',
+    ages: 'Ages 5–9',
+    title: "God's creation treasure hunt",
+    description: 'Head outdoors and notice the wonderful things God has made.',
+    action: 'Nature activity',
+    image: creationImage,
   },
 ]
 
 function ArrowIcon({ diagonal = false }) {
   return (
-    <svg
-      aria-hidden="true"
-      className="arrow-icon"
-      viewBox="0 0 16 16"
-      fill="none"
-    >
-      {diagonal ? (
-        <path d="M4 12 12 4M5 4h7v7" />
-      ) : (
-        <path d="M2.5 8h10m-4-4 4 4-4 4" />
-      )}
+    <svg className="arrow-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none">
+      {diagonal
+        ? <path d="M4 12 12 4M5 4h7v7" />
+        : <path d="M2.5 8h10m-4-4 4 4-4 4" />}
     </svg>
   )
 }
 
-function BrandMark() {
+function Brand() {
   return (
-    <a className="brand" href="#home" aria-label="Zoetales home">
-      <svg
-        className="brand-symbol"
-        aria-hidden="true"
-        viewBox="0 0 64 64"
-        fill="none"
-      >
-        <path
-          d="M32 37V14m0 8c-10 0-16-5-17-15 10 0 16 5 17 15Zm0 7c10 0 16-5 17-15-10 0-16 5-17 15Z"
-          fill="currentColor"
-        />
-        <path
-          d="M32 38c-9-7-19-9-28-6v15c10-3 19-1 28 6 9-7 18-9 28-6V32c-9-3-19-1-28 6Z"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 39c8-1 15 1 23 7 8-6 15-8 23-7M32 38v15"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M32 5v4m-2-2h4"
-          stroke="#D8A43B"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-      <span className="brand-lockup">
-        <span className="brand-name">ZOETALES</span>
-        <span className="brand-tagline">Bringing God&apos;s Word to life</span>
-      </span>
+    <a className="brand" href="/" aria-label="Zoetales home">
+      <span className="brand-name">ZOETALES</span>
+      <span className="brand-tagline">Bringing God&apos;s Word to life</span>
     </a>
   )
 }
 
-function StoryArtwork({ type }) {
+function Header({ view }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
-    <div className={`story-art story-art--${type}`} aria-hidden="true">
-      <span className="story-art__sun" />
-      <span className="story-art__hill story-art__hill--back" />
-      <span className="story-art__hill story-art__hill--front" />
-      {type === 'ark' && <span className="story-art__boat" />}
-      {type === 'esther' && <span className="story-art__crown" />}
-      {type === 'lamb' && <span className="story-art__sheep" />}
-      {type === 'david' && <span className="story-art__star" />}
-      <span className="story-art__number">{stories.find((story) => story.art === type)?.number}</span>
-    </div>
+    <header className="site-header">
+      <div className="header-inner">
+        <Brand />
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span /><span />
+        </button>
+        <nav className={`primary-navigation ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
+          {navigation.map((item) => (
+            <a
+              key={item.label}
+              className={item.view === view && (view === 'home' ? item.label === 'Bible Stories' : item.label === 'Explore & Learn') ? 'active' : ''}
+              href={item.href}
+              aria-current={item.view === view && (view === 'home' ? item.label === 'Bible Stories' : item.label === 'Explore & Learn') ? 'page' : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <a className="button button--gold header-cta" href="/#stories">
+          Explore Stories <ArrowIcon diagonal />
+        </a>
+      </div>
+    </header>
   )
 }
 
-function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [selectedStory, setSelectedStory] = useState(null)
-  const storyDialogRef = useRef(null)
+function StoryCard({ item, onOpen }) {
+  return (
+    <article className="story-card">
+      <div className="card-image-wrap">
+        <img src={item.image} alt="" className="card-image" />
+      </div>
+      <div className="story-card-body">
+        <p className="card-meta">{item.label && `${item.label} · `}{item.ages}</p>
+        <h3>{item.title}</h3>
+        <p className="card-description">{item.description}</p>
+        <button type="button" className="card-link" onClick={() => onOpen(item)}>
+          {item.action} <span aria-hidden="true">↗</span>
+        </button>
+        {item.action === 'View activity' && <span className="card-extra">· &nbsp; Coloring sheet</span>}
+        {item.action === 'Family activity' && <span className="card-extra">· &nbsp; Family activity</span>}
+        {item.action === 'Nature activity' && <span className="card-extra">· &nbsp; Nature activity</span>}
+      </div>
+    </article>
+  )
+}
+
+function HomePage() {
+  const [selected, setSelected] = useState(null)
+  const dialogRef = useRef(null)
 
   useEffect(() => {
-    const dialog = storyDialogRef.current
-    if (!dialog) return
-
-    if (selectedStory && !dialog.open) dialog.showModal()
-    if (!selectedStory && dialog.open) dialog.close()
-  }, [selectedStory])
-
-  function closeMenu() {
-    setMenuOpen(false)
-  }
-
-  function closeStory() {
-    setSelectedStory(null)
-  }
+    if (selected && !dialogRef.current.open) dialogRef.current.showModal()
+  }, [selected])
 
   return (
     <>
-      <header className="site-header">
-        <div className="header-inner">
-          <BrandMark />
-          <button
-            className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
-            type="button"
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={menuOpen}
-            aria-controls="primary-navigation"
-            onClick={() => setMenuOpen((isOpen) => !isOpen)}
-          >
-            <span />
-            <span />
-          </button>
-          <nav
-            className={`primary-navigation${menuOpen ? ' is-open' : ''}`}
-            id="primary-navigation"
-            aria-label="Main navigation"
-          >
-            {navigation.map((item) => (
-              <a href={item.href} key={item.label} onClick={closeMenu}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a className="button button--gold header-cta" href="#stories">
-            Explore stories <ArrowIcon diagonal />
-          </a>
-        </div>
-      </header>
-
       <main>
-        <section className="hero" id="home" aria-labelledby="hero-title">
+        <section className="hero" id="home">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow--light">A little wonder. A lot of faith.</p>
-            <h1 id="hero-title">
-              Big adventures.
-              <br />
-              Little hearts.
-              <br />
-              Eternal truths.
-            </h1>
-            <p className="hero-script">Bringing God&apos;s Word to life.</p>
-            <p className="hero-description">
-              A world of Bible stories, joyful songs, and wonder-filled
-              adventures. Made for little explorers. Rooted in God&apos;s love.
-            </p>
-            <div className="hero-actions">
-              <a className="button button--gold" href="#stories">
-                Explore Bible stories <ArrowIcon diagonal />
-              </a>
-              <a className="button button--light" href="#watch">
-                Watch the wonder <ArrowIcon diagonal />
-              </a>
-            </div>
-            <p className="hero-note">
-              Faith-filled fun for ages 3–12 <span>·</span> Made for growing
-              hearts
-            </p>
+            <p className="eyebrow">Big adventures start in His Word</p>
+            <h1>Little stories.<br />Life-changing truths.</h1>
+            <p className="hero-description">Step into a world of courage, kindness and God&apos;s love. Bible stories made for little hearts and shared discoveries.</p>
+            <a className="button button--gold" href="#stories">
+              Find a story <ArrowIcon diagonal />
+            </a>
+            <p className="hero-note">For ages 3–12 · Best enjoyed together</p>
           </div>
           <div className="hero-art">
-            <img
-              className="hero-illustration"
-              src={heroImage}
-              alt="A glowing forest adventure rising from the pages of an open storybook"
-              fetchPriority="high"
-            />
-            <div className="hero-art-note">
-              <span className="note-star" aria-hidden="true">
-                ✦
-              </span>
-              <p>
-                Every great adventure
-                <br />
-                <span>begins with His Word.</span>
-              </p>
-            </div>
-            <span className="hero-art-caption">A storybook world awaits</span>
+            <img src={homeHeroImage} alt="An illustrated storybook forest adventure" />
           </div>
         </section>
 
-        <section className="values-strip" id="values" aria-label="What we believe">
-          {values.map((value) => (
-            <div className="value-item" key={value}>
-              <span aria-hidden="true">✦</span>
-              {value}
+        <section className="stories-section" id="stories">
+          <div className="section-inner">
+            <p className="eyebrow dark">Pick a story. Discover His love.</p>
+            <h2>Which adventure will you choose?</h2>
+            <p className="section-intro">Start with a familiar favorite or discover something wonderful together.</p>
+            <div className="filters" aria-label="Story categories">
+              <button className="filter active" type="button">All stories</button>
+              <button className="filter" type="button">Old Testament</button>
+              <button className="filter" type="button">New Testament</button>
+              <button className="filter" type="button">Courage & kindness</button>
+              <button className="filter" type="button">Search Bible stories...</button>
             </div>
-          ))}
-        </section>
-
-        <section className="stories-section section-wrap" id="stories">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow eyebrow--green">Open a story. Discover His love.</p>
-              <h2>Extraordinary stories. <em>Everlasting truths.</em></h2>
-              <p className="section-intro">
-                Big lessons in courage, kindness, and trusting God, one
-                adventure at a time.
-              </p>
+            <div className="story-grid">
+              {stories.map((item) => <StoryCard key={item.title} item={item} onOpen={setSelected} />)}
             </div>
-            <a className="text-link" href="#story-collection">
-              Meet your next favorite <ArrowIcon />
-            </a>
-          </div>
-          <div className="story-grid" id="story-collection">
-            {stories.map((story) => (
-              <article className="story-card" key={story.title}>
-                <StoryArtwork type={story.art} />
-                <div className="story-card__body">
-                  <p className="story-category">{story.category}</p>
-                  <h3>{story.title}</h3>
-                  <p className="story-reference">{story.reference}</p>
-                  <button
-                    className="story-link"
-                    type="button"
-                    onClick={() => setSelectedStory(story)}
-                  >
-                    Discover this story <ArrowIcon />
-                  </button>
-                </div>
-              </article>
-            ))}
+            <p className="section-end">Every story is a chance to talk, wonder and grow together.</p>
           </div>
         </section>
 
-        <section className="wonder-section" id="watch">
-          <div className="wonder-inner section-wrap">
-            <div className="wonder-copy">
-              <p className="eyebrow eyebrow--light">Gather close, wonder together</p>
-              <h2>Stories made to be <em>shared.</em></h2>
-              <p>
-                From a quiet bedtime read to a joyful sing-along, find little
-                ways to bring a big-hearted faith into every day.
-              </p>
-              <a className="button button--light" href="#contact">
-                Find your next family moment <ArrowIcon diagonal />
+        <section className="story-feature" id="about">
+          <div className="feature-inner">
+            <img src={familyReadingImage} alt="Children reading together outdoors" />
+            <div className="feature-copy">
+              <p className="eyebrow dark">Beyond “the end”</p>
+              <h2>The story is just<br />the beginning.</h2>
+              <p>Ask a big question. Make something with little hands. Find simple ways to bring each Bible story into your everyday.</p>
+              <a className="text-link" href="/activities#explore">
+                Explore family activities <ArrowIcon />
               </a>
             </div>
-            <div className="wonder-card" aria-label="A little time together goes a long way">
-              <span className="wonder-card__spark" aria-hidden="true">✳</span>
-              <p className="wonder-card__quote">
-                “Let the little children come to me.”
-              </p>
-              <p className="wonder-card__reference">MATTHEW 19:14</p>
-              <div className="wonder-card__rule" />
-              <p className="wonder-card__note">A little time together goes a long way.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="about-section section-wrap" id="about">
-          <div className="about-symbol" aria-hidden="true">
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-          </div>
-          <div className="about-copy">
-            <p className="eyebrow eyebrow--green">A little about us</p>
-            <h2>Growing faith, one <em>story at a time.</em></h2>
-            <p>
-              ZoeTales brings timeless Bible stories to life for curious kids
-              and the grown-ups who love them. Because the best adventures
-              help little hearts know they are loved by God.
-            </p>
-            <a className="text-link" href="#contact">
-              Say hello <ArrowIcon />
-            </a>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer" id="contact">
-        <div className="footer-inner">
-          <BrandMark />
-          <p>Little stories. Eternal truths. A lifetime of faith.</p>
-          <a className="footer-link" href="mailto:hello@zoetales.com">
-            Get in touch <ArrowIcon diagonal />
-          </a>
-          <span className="copyright">© ZoeTales</span>
-        </div>
-      </footer>
-
-      <dialog
-        className="story-dialog"
-        ref={storyDialogRef}
-        aria-labelledby="story-dialog-title"
-        onClose={closeStory}
-      >
-        {selectedStory && (
-          <div className="story-dialog__content">
-            <button
-              className="dialog-close"
-              type="button"
-              aria-label="Close story"
-              onClick={() => storyDialogRef.current?.close()}
-            >
-              ×
-            </button>
-            <p className="eyebrow eyebrow--green">{selectedStory.category}</p>
-            <h2 id="story-dialog-title">{selectedStory.title}</h2>
-            <p className="story-dialog__reference">{selectedStory.reference}</p>
-            <p>{selectedStory.description}</p>
-            <a
-              className="button button--gold"
-              href="#stories"
-              onClick={() => storyDialogRef.current?.close()}
-            >
-              Explore more stories <ArrowIcon diagonal />
-            </a>
+      <dialog className="story-dialog" ref={dialogRef} onClose={() => setSelected(null)}>
+        {selected && (
+          <div>
+            <button className="dialog-close" type="button" aria-label="Close" onClick={() => dialogRef.current.close()}>×</button>
+            <p className="eyebrow dark">{selected.ages}</p>
+            <h2>{selected.title}</h2>
+            <p>{selected.description}</p>
           </div>
         )}
       </dialog>
+    </>
+  )
+}
+
+function ActivitiesPage() {
+  return (
+    <main>
+      <section className="hero" id="watch">
+        <div className="hero-copy">
+          <p className="eyebrow">Big questions, happy discoveries</p>
+          <h1>Little hands.<br />Growing faith.</h1>
+          <p className="hero-description">Color, create, wonder and play. Simple activities that help God&apos;s Word take root in everyday life.</p>
+          <a className="button button--gold" href="#explore">
+            Find an activity <ArrowIcon diagonal />
+          </a>
+          <p className="hero-note">For families, Sunday schools & curious little hearts</p>
+        </div>
+        <div className="hero-art">
+          <img src={activitiesHeroImage} alt="Children enjoying a Bible story together outdoors" />
+        </div>
+      </section>
+
+      <section className="stories-section" id="explore">
+        <div className="section-inner">
+          <p className="eyebrow dark">Small moments, beautiful discoveries.</p>
+          <h2>Bring the story into their day.</h2>
+          <p className="section-intro">A little preparation, a lot of wonder. Choose something to enjoy together.</p>
+          <div className="filters" aria-label="Activity categories">
+            <button className="filter active" type="button">All activities</button>
+            <button className="filter" type="button">Color & create</button>
+            <button className="filter" type="button">Talk & wonder</button>
+            <button className="filter" type="button">Explore & discover</button>
+          </div>
+          <div className="story-grid">
+            {activities.map((item) => <StoryCard key={item.title} item={item} onOpen={() => {}} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="how-section">
+        <div className="section-inner">
+          <p className="eyebrow dark">A little rhythm for your family</p>
+          <h2>Watch it. Wonder about it. Live it.</h2>
+          <div className="how-grid">
+            <div><span>01 / Watch</span><h3>Start with a story.</h3><p>Settle in for a Bible adventure. Let their curiosity lead the way.</p></div>
+            <div><span>02 / Wonder</span><h3>Ask one big question.</h3><p>What surprised you? How did God show His love? There&apos;s no perfect answer.</p></div>
+            <div><span>03 / Live</span><h3>Try one little thing.</h3><p>Make, play or pray together. Carry the story into the rest of your day.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="next-section" id="contact">
+        <div className="section-inner next-inner">
+          <div>
+            <p className="eyebrow dark">For the grown-ups who guide them</p>
+            <h2>A little help for<br />your next faith-filled moment.</h2>
+            <p>Looking for something for your classroom or Sunday school? Let&apos;s find a joyful place to start.</p>
+          </div>
+          <button className="button button--gold" type="button">Get in touch <ArrowIcon diagonal /></button>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function Footer({ view }) {
+  return (
+    <footer className="site-footer" id={view === 'home' ? 'contact' : undefined}>
+      <div className="footer-inner">
+        <div><Brand /><p className="footer-tagline">Little stories for the biggest journey of all.</p></div>
+        <div className="footer-links"><strong>Discover</strong><a href="/#stories">Bible Stories</a><a href="/activities#watch">Watch &amp; Listen</a><a href="/activities#explore">Explore &amp; Learn</a></div>
+        <div className="footer-links"><strong>ZOETALES</strong><a href="/#about">About Us</a><a href="/activities#contact">Contact</a><a href="/activities#explore">For Parents &amp; Teachers</a></div>
+        <div className="footer-links"><strong>Stay connected</strong><a href="#youtube">YouTube <span>↗</span></a><a href="#instagram">Instagram <span>↗</span></a><a href="#facebook">Facebook <span>↗</span></a></div>
+        <div className="footer-bottom"><span>© 2026, ZOETALES. All rights reserved.</span><span><a href="#privacy">Privacy policy</a> &nbsp; <a href="#terms">Terms of use</a></span></div>
+      </div>
+    </footer>
+  )
+}
+
+function App() {
+  const view = window.location.pathname.replace(/\/+$/, '') === '/activities'
+    ? 'activities'
+    : 'home'
+
+  return (
+    <>
+      <Header view={view} />
+      {view === 'home' ? <HomePage /> : <ActivitiesPage />}
+      <Footer view={view} />
     </>
   )
 }
