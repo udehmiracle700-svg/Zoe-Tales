@@ -6,11 +6,11 @@ import './AboutPage.css'
 
 const navigation = [
   { label: 'Home', href: '/#home' },
-  { label: 'Bible Stories', href: '/#stories' },
+  { label: 'Bible Stories', href: '/bible-stories/#stories' },
   { label: 'Watch & Listen', href: '/watch-listen.html' },
-  { label: 'Explore & Learn', href: '/#values' },
+  { label: 'Explore & Learn', href: '/activities/#explore' },
   { label: 'About Us', href: '/about-us.html', current: true },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact/' },
 ]
 
 function ArrowIcon() {
@@ -71,7 +71,7 @@ export default function AboutPage() {
               </a>
             ))}
           </nav>
-          <a className="about-button about-button--gold about-header__cta" href="/#stories">
+          <a className="about-button about-button--gold about-header__cta" href="/bible-stories/#stories">
             Explore Stories <ArrowIcon />
           </a>
         </div>
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 Thoughtfully made for ages 3–12, with plenty of ways for
                 grown-ups to join the adventure.
               </p>
-              <a className="about-button about-button--gold" href="/#stories">
+              <a className="about-button about-button--gold" href="/activities/#explore">
                 Explore &amp; Learn <ArrowIcon />
               </a>
             </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
               <h2>Come grow with us.</h2>
               <p>There's a little wonder waiting for every heart.</p>
             </div>
-            <a className="about-button about-button--gold" href="/#stories">
+            <a className="about-button about-button--gold" href="/bible-stories/#stories">
               Discover Bible stories <ArrowIcon />
             </a>
           </div>
@@ -179,26 +179,26 @@ export default function AboutPage() {
             </div>
             <div className="about-footer__column">
               <h2>Discover</h2>
-              <a href="/#stories">Bible Stories</a>
+              <a href="/bible-stories/#stories">Bible Stories</a>
               <a href="/watch-listen.html">Watch &amp; Listen</a>
-              <a href="/#values">Explore &amp; Learn</a>
+              <a href="/activities/#explore">Explore &amp; Learn</a>
             </div>
             <div className="about-footer__column">
               <h2>ZOETALES</h2>
               <a href="/about-us.html">About Us</a>
-              <a href="/#contact">Contact</a>
-              <a href="/#contact">For parents &amp; teachers</a>
+              <a href="/contact/">Contact</a>
+              <a href="/activities/#explore">For parents &amp; teachers</a>
             </div>
             <div className="about-footer__column">
               <h2>Stay connected</h2>
-              <a href="/#contact">YouTube ↗</a>
-              <a href="/#contact">Instagram ↗</a>
-              <a href="/#contact">Facebook ↗</a>
+              <a href="/contact/">YouTube ↗</a>
+              <a href="/contact/">Instagram ↗</a>
+              <a href="/contact/">Facebook ↗</a>
             </div>
           </div>
           <div className="about-footer__bottom">
             <span>© 2026 ZOETALES. All rights reserved.</span>
-            <span><a href="/#contact">Privacy policy</a><a href="/#contact">Terms of use</a></span>
+            <span><a href="/contact/">Privacy policy</a><a href="/contact/">Terms of use</a></span>
           </div>
         </div>
       </footer>

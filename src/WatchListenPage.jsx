@@ -5,11 +5,11 @@ import './WatchListenPage.css'
 
 const navigation = [
   { label: 'Home', href: '/#home' },
-  { label: 'Bible Stories', href: '/#stories' },
+  { label: 'Bible Stories', href: '/bible-stories/#stories' },
   { label: 'Watch & Listen', href: '/watch-listen.html', current: true },
-  { label: 'Explore & Learn', href: '/#values' },
+  { label: 'Explore & Learn', href: '/activities/#explore' },
   { label: 'About Us', href: '/about-us.html' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact/' },
 ]
 
 const audioStories = [
@@ -82,7 +82,7 @@ export default function WatchListenPage() {
               </a>
             ))}
           </nav>
-          <a className="watch-button watch-button--gold watch-header__cta" href="/#stories">
+          <a className="watch-button watch-button--gold watch-header__cta" href="/bible-stories/#stories">
             Explore Stories <ArrowIcon />
           </a>
         </div>
@@ -107,7 +107,7 @@ export default function WatchListenPage() {
                 src={noahImage}
                 alt="Noah welcomes animals aboard the ark as a rainbow shines over the water"
               />
-              <a href="/#stories">
+              <a href="/bible-stories/#stories">
                 <span aria-hidden="true">▶</span> Watch the story
               </a>
               <span className="watch-spotlight__duration">8 MIN&nbsp; · &nbsp;AGES 3+</span>
@@ -119,7 +119,7 @@ export default function WatchListenPage() {
                 Join Noah on an extraordinary adventure, and discover how
                 trusting God can lead to wonderful things.
               </p>
-              <a className="watch-button watch-button--gold" href="/#stories">
+              <a className="watch-button watch-button--gold" href="/bible-stories/#stories">
                 Watch Noah&apos;s story <span aria-hidden="true">▶</span>
               </a>
               <span className="watch-spotlight__reference">Based on Genesis 6–9</span>
@@ -171,7 +171,7 @@ export default function WatchListenPage() {
               “What would you have done?” One little question after a story
               can open a beautiful conversation.
             </p>
-            <a className="watch-button watch-button--gold" href="/#values">
+            <a className="watch-button watch-button--gold" href="/activities/#explore">
               Find activities to go with a story <ArrowIcon />
             </a>
           </div>
@@ -186,26 +186,26 @@ export default function WatchListenPage() {
             </div>
             <div className="watch-footer__column">
               <h2>Discover</h2>
-              <a href="/#stories">Bible Stories</a>
+              <a href="/bible-stories/#stories">Bible Stories</a>
               <a href="/watch-listen.html">Watch &amp; Listen</a>
-              <a href="/#values">Explore &amp; Learn</a>
+              <a href="/activities/#explore">Explore &amp; Learn</a>
             </div>
             <div className="watch-footer__column">
               <h2>ZOETALES</h2>
               <a href="/about-us.html">About Us</a>
-              <a href="/#contact">Contact</a>
-              <a href="/#contact">For parents &amp; teachers</a>
+              <a href="/contact/">Contact</a>
+              <a href="/activities/#explore">For parents &amp; teachers</a>
             </div>
             <div className="watch-footer__column">
               <h2>Stay connected</h2>
-              <a href="/#contact">YouTube ↗</a>
-              <a href="/#contact">Instagram ↗</a>
-              <a href="/#contact">Facebook ↗</a>
+              <a href="/contact/">YouTube ↗</a>
+              <a href="/contact/">Instagram ↗</a>
+              <a href="/contact/">Facebook ↗</a>
             </div>
           </div>
           <div className="watch-footer__bottom">
             <span>© 2026 ZOETALES. All rights reserved.</span>
-            <span><a href="/#contact">Privacy policy</a><a href="/#contact">Terms of use</a></span>
+            <span><a href="/contact/">Privacy policy</a><a href="/contact/">Terms of use</a></span>
           </div>
         </div>
       </footer>
