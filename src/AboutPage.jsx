@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import aboutImage from './assets/about-book-clean.png'
+import aboutImage from './assets/about-wonder.png'
 import familyImage from './assets/family-photo.png'
 import zoetalesLogo from './assets/zoetales-emblem.png'
 import './AboutPage.css'
@@ -92,7 +92,7 @@ export default function AboutPage() {
         <section className="about-wonder">
           <div className="about-content about-wonder__inner">
             <div className="about-wonder__image">
-              <img src={aboutImage} alt="An open storybook with a magical forest and the title Stories of Old" />
+              <img src={aboutImage} alt="An open storybook revealing a lush forest, river, and Noah's ark" />
             </div>
             <div className="about-wonder__copy">
               <p className="about-eyebrow">BRINGING GOD'S WORD TO LIFE</p>

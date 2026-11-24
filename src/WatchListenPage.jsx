@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import noahImage from './assets/watch-noah-enhanced.png'
+import noahImage from './assets/watch-story-art.png'
 import zoetalesLogo from './assets/zoetales-emblem.png'
 import './WatchListenPage.css'
 

@@ -1,8 +1,8 @@
 .about-page {
-  --about-cream: #fff5e2;
-  --about-green: #174f42;
-  --about-gold: #e3a938;
-  --about-text: #244a40;
+  --about-cream: var(--cream);
+  --about-green: var(--forest);
+  --about-gold: var(--gold);
+  --about-text: var(--ink);
   min-height: 100vh;
   color: var(--about-text);
   background: var(--about-cream);
@@ -54,14 +54,14 @@
 
 .about-brand__name {
   font-family: var(--serif);
-  font-size: min(2.35vw, 34px);
-  font-weight: 500;
-  letter-spacing: -.025em;
+  font-size: var(--type-brand);
+  font-weight: 700;
+  letter-spacing: .045em;
   line-height: 1;
 }
 
 .about-brand__tagline {
-  font-size: min(.55vw, 8px);
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .01em;
   white-space: nowrap;
@@ -78,7 +78,8 @@
 .about-nav a {
   padding-block: 8px;
   color: var(--about-green);
-  font-size: min(.86vw, 12.5px);
+  font-size: var(--type-nav);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -88,17 +89,17 @@
 }
 
 .about-button {
-  min-height: min(3.75vw, 54px);
-  padding: 0 min(1.8vw, 26px);
+  min-height: 44px;
+  padding: 0 20px;
   border: 0;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: min(.55vw, 8px);
+  gap: 8px;
   color: var(--about-green);
-  font-size: min(.72vw, 10.5px);
-  font-weight: 600;
+  font-size: var(--type-button);
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -108,8 +109,8 @@
 }
 
 .about-button svg {
-  width: min(.9vw, 13px);
-  height: min(.9vw, 13px);
+  width: 13px;
+  height: 13px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.5;
@@ -118,10 +119,8 @@
 }
 
 .about-header__cta {
-  width: min(10.7vw, 154px);
-  min-height: min(3.65vw, 53px);
-  padding-inline: 0;
-  margin-right: min(13.4vw, 193px);
+  min-height: 38px;
+  padding-inline: 18px;
 }
 
 .about-menu-toggle {
@@ -129,9 +128,9 @@
 }
 
 .about-eyebrow {
-  margin: 0 0 min(1.6vw, 23px);
+  margin: 0 0 14px;
   color: #526e5f;
-  font-size: min(.58vw, 8.5px);
+  font-size: var(--type-eyebrow);
   font-weight: 700;
   letter-spacing: .1em;
   line-height: 1.5;
@@ -161,16 +160,16 @@
 .about-intro h1 {
   margin: 0;
   font-family: var(--serif);
-  font-size: min(4.55vw, 66px);
+  font-size: var(--type-hero);
   font-weight: 400;
-  letter-spacing: -.025em;
+  letter-spacing: -.045em;
   line-height: 1.2;
 }
 
 .about-intro .about-content > p:last-child {
-  margin: min(1.4vw, 20px) 0 0;
+  margin: 20px 0 0;
   color: #e0e8dc;
-  font-size: min(1.28vw, 18.5px);
+  font-size: var(--type-copy);
   line-height: 1.4;
 }
 
@@ -189,7 +188,7 @@
 
 .about-wonder__image {
   width: 90.5%;
-  aspect-ratio: 10 / 9;
+  aspect-ratio: 580 / 450;
   overflow: hidden;
   border-radius: min(1.45vw, 21px);
 }
@@ -208,9 +207,9 @@
 }
 
 .about-wonder__copy .about-eyebrow {
-  margin-bottom: min(2.15vw, 31px);
+  margin-bottom: 23px;
   color: #3c5a4d;
-  font-size: min(.58vw, 8.5px);
+  font-size: var(--type-eyebrow);
   letter-spacing: .05em;
 }
 
@@ -222,30 +221,30 @@
   color: var(--about-green);
   font-family: var(--serif);
   font-weight: 400;
-  letter-spacing: -.02em;
+  letter-spacing: -.035em;
   line-height: 1.25;
 }
 
 .about-wonder h2 {
-  font-size: min(3.2vw, 46px);
+  font-size: var(--type-section);
 }
 
 .about-wonder__copy > p:not(.about-eyebrow) {
-  margin: min(1.1vw, 16px) 0 0;
+  margin: 16px 0 0;
   color: #66776f;
-  font-size: min(1.25vw, 18px);
+  font-size: var(--type-copy);
   line-height: 1.4;
 }
 
 .about-wonder__copy > p:not(.about-eyebrow) + p {
-  margin-top: min(1.15vw, 17px);
+  margin-top: 17px;
 }
 
 .about-values {
   height: min(32vw, 461px);
   display: flex;
   align-items: center;
-  background: #e8edde;
+  background: var(--sage);
 }
 
 .about-values .about-content {
@@ -254,14 +253,14 @@
 }
 
 .about-values .about-eyebrow {
-  margin-bottom: min(3.5vw, 50px);
-  color: #456457;
-  font-size: min(.58vw, 8.5px);
+  margin-bottom: 38px;
+  color: var(--forest);
+  font-size: var(--type-eyebrow);
   letter-spacing: .05em;
 }
 
 .about-values h2 {
-  font-size: min(3.2vw, 46px);
+  font-size: var(--type-section);
 }
 
 .about-values__grid {
@@ -280,23 +279,23 @@
   margin-bottom: min(1.6vw, 23px);
   color: var(--about-green);
   font-family: var(--serif);
-  font-size: min(2.25vw, 32px);
+  font-size: 24px;
   line-height: 1;
 }
 
 .about-values__grid h3 {
-  margin: 0 0 min(1vw, 14px);
+  margin: 0 0 10px;
   color: var(--about-green);
   font-family: var(--serif);
-  font-size: min(1.9vw, 27px);
+  font-size: var(--type-card);
   font-weight: 400;
 }
 
 .about-values__grid p {
   max-width: 410px;
   margin: 0;
-  color: #68776f;
-  font-size: min(1.18vw, 17px);
+  color: #68756e;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -318,14 +317,14 @@
 }
 
 .about-moments__copy .about-eyebrow {
-  margin-bottom: min(1.6vw, 23px);
+  margin-bottom: 23px;
   color: #526e5f;
-  font-size: min(.58vw, 8.5px);
+  font-size: var(--type-eyebrow);
   letter-spacing: .05em;
 }
 
 .about-moments h2 {
-  font-size: min(3.2vw, 46px);
+  font-size: var(--type-section);
   line-height: 1.25;
   position: relative;
   top: min(.75vw, 11px);
@@ -333,20 +332,20 @@
 
 .about-moments__copy > p:not(.about-eyebrow) {
   max-width: 570px;
-  margin: min(1.6vw, 23px) 0 0;
+  margin: 23px 0 0;
   color: #66776f;
-  font-size: min(1.25vw, 18px);
+  font-size: var(--type-copy);
   line-height: 1.4;
 }
 
 .about-moments__copy > p:not(.about-eyebrow) + p {
-  margin-top: min(1.45vw, 21px);
+  margin-top: 21px;
 }
 
 .about-moments__copy .about-button {
-  min-height: min(3.65vw, 53px);
-  margin-top: min(1.8vw, 26px);
-  padding-inline: min(1.9vw, 27px);
+  min-height: 47px;
+  margin-top: 26px;
+  padding-inline: 20px;
 }
 
 .about-moments__image {
@@ -383,19 +382,19 @@
 
 .about-together h2 {
   color: #fff8e9;
-  font-size: min(3.2vw, 46px);
+  font-size: var(--type-section-large);
 }
 
 .about-together p {
-  margin: min(.8vw, 12px) 0 0;
+  margin: 10px 0 0;
   color: #e0e8dc;
-  font-size: min(1.25vw, 18px);
+  font-size: var(--type-body);
 }
 
 .about-together .about-button {
-  min-height: min(3.75vw, 54px);
-  margin-right: min(3.5vw, 50px);
-  padding-inline: min(3.4vw, 49px);
+  min-height: 44px;
+  margin-right: 50px;
+  padding-inline: 28px;
   transform: translateY(max(-.65vw, -9px));
 }
 
@@ -414,13 +413,13 @@
 }
 
 .about-brand--footer .about-brand__name {
-  font-size: min(2.35vw, 34px);
+  font-size: var(--type-brand);
 }
 
 .about-brand--footer .about-brand__tagline {
   color: var(--about-green);
   font-family: var(--serif);
-  font-size: min(1.1vw, 16px);
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -428,13 +427,13 @@
   display: block;
   margin-top: min(.8vw, 12px);
   color: #68776f;
-  font-size: min(.78vw, 11px);
+  font-size: var(--type-caption);
 }
 
 .about-footer__column h2 {
   margin: min(.2vw, 3px) 0 min(1.3vw, 19px);
   color: #315a4c;
-  font-size: min(.8vw, 11.5px);
+  font-size: var(--type-caption);
   font-weight: 500;
 }
 
@@ -443,7 +442,7 @@
   width: fit-content;
   margin: min(.9vw, 13px) 0;
   color: #52675c;
-  font-size: min(.76vw, 11px);
+  font-size: var(--type-small);
   text-decoration: none;
 }
 
@@ -454,7 +453,7 @@
   align-items: center;
   justify-content: space-between;
   color: #718076;
-  font-size: min(.65vw, 9.5px);
+  font-size: 8px;
 }
 
 .about-footer__bottom > span:last-child {
@@ -465,6 +464,34 @@
 .about-footer__bottom a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .about-brand__tagline {
+    font-size: var(--type-tagline);
+  }
+
+  .about-header__cta {
+    font-size: var(--type-header-button);
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .about-wonder,
+  .about-values,
+  .about-moments {
+    height: auto;
+    min-height: 0;
+  }
+
+  .about-wonder,
+  .about-moments {
+    padding-block: 40px;
+  }
+
+  .about-values .about-content {
+    transform: none;
+  }
 }
 
 @media (max-width: 700px) {
@@ -480,7 +507,7 @@
 
   .about-brand__name,
   .about-brand--footer .about-brand__name {
-    font-size: 22px;
+    font-size: var(--type-brand);
   }
 
   .about-brand__logo {
@@ -489,7 +516,7 @@
   }
 
   .about-brand__tagline {
-    font-size: 8px;
+    font-size: 9.5px;
   }
 
   .about-header__cta {
@@ -544,7 +571,7 @@
   .about-button {
     min-height: 44px;
     padding-inline: 18px;
-    font-size: 10px;
+    font-size: var(--type-button);
   }
 
   .about-button svg {
@@ -557,7 +584,7 @@
   .about-values .about-eyebrow,
   .about-moments__copy .about-eyebrow {
     margin-bottom: 14px;
-    font-size: 8px;
+    font-size: var(--type-eyebrow);
   }
 
   .about-intro {
@@ -572,13 +599,13 @@
   }
 
   .about-intro h1 {
-    font-size: clamp(35px, 9vw, 48px);
+    font-size: var(--type-hero);
     line-height: 1.15;
   }
 
   .about-intro .about-content > p:last-child {
     margin-top: 18px;
-    font-size: 11px;
+    font-size: var(--type-copy);
   }
 
   .about-intro .about-content > p:last-child br {
@@ -605,7 +632,7 @@
 
   .about-wonder__image {
     width: 100%;
-    aspect-ratio: 10 / 9;
+    aspect-ratio: 580 / 450;
     border-radius: 12px;
   }
 
@@ -618,14 +645,14 @@
   .about-values h2,
   .about-moments h2,
   .about-together h2 {
-    font-size: 32px;
+    font-size: var(--type-section);
     top: 0;
   }
 
   .about-wonder__copy > p:not(.about-eyebrow),
   .about-moments__copy > p:not(.about-eyebrow) {
     margin-top: 14px;
-    font-size: 11px;
+    font-size: var(--type-body);
   }
 
   .about-values .about-content {
@@ -656,11 +683,11 @@
 
   .about-values__grid h3 {
     margin-bottom: 8px;
-    font-size: 18px;
+    font-size: var(--type-card);
   }
 
   .about-values__grid p {
-    font-size: 10px;
+    font-size: var(--type-small);
   }
 
   .about-moments {
@@ -697,7 +724,7 @@
 
   .about-together p {
     margin-top: 8px;
-    font-size: 11px;
+    font-size: var(--type-body);
   }
 
   .about-footer__main {
@@ -722,12 +749,12 @@
 
   .about-footer__column h2 {
     margin-bottom: 12px;
-    font-size: 9px;
+    font-size: var(--type-caption);
   }
 
   .about-footer__column a {
     margin-block: 10px;
-    font-size: 9px;
+    font-size: var(--type-small);
   }
 
   .about-footer__bottom {

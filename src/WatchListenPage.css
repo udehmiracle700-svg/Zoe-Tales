@@ -1,10 +1,10 @@
 .watch-page {
-  --watch-cream: #fff5e2;
-  --watch-green: #174f42;
-  --watch-deep-green: #164d40;
-  --watch-sage: #e8edde;
-  --watch-gold: #e5a936;
-  --watch-text: #244a40;
+  --watch-cream: var(--cream);
+  --watch-green: var(--forest);
+  --watch-deep-green: var(--forest-dark);
+  --watch-sage: var(--sage);
+  --watch-gold: var(--gold);
+  --watch-text: var(--ink);
   min-height: 100vh;
   color: var(--watch-text);
   background: var(--watch-cream);
@@ -57,14 +57,14 @@
 
 .watch-brand__name {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: var(--type-brand);
   font-weight: 700;
   letter-spacing: .045em;
   line-height: 1;
 }
 
 .watch-brand__tagline {
-  font-size: 12px;
+  font-size: var(--type-tagline);
   font-weight: 600;
   letter-spacing: .01em;
   white-space: nowrap;
@@ -80,7 +80,8 @@
 .watch-nav a {
   padding-block: 8px;
   color: var(--watch-green);
-  font-size: 11px;
+  font-size: var(--type-nav);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -99,7 +100,7 @@
   justify-content: center;
   gap: 8px;
   color: var(--watch-green);
-  font-size: 11px;
+  font-size: var(--type-button);
   font-weight: 700;
   text-decoration: none;
 }
@@ -140,7 +141,7 @@
 .watch-eyebrow {
   margin: 0 0 20px;
   color: #536f5f;
-  font-size: 10px;
+  font-size: var(--type-eyebrow);
   font-weight: 700;
   letter-spacing: .16em;
   line-height: 1.5;
@@ -155,7 +156,7 @@
   margin: 0;
   color: var(--watch-cream);
   font-family: var(--serif);
-  font-size: clamp(50px, 4.65vw, 68px);
+  font-size: var(--type-hero);
   font-weight: 400;
   letter-spacing: -.035em;
   line-height: 1.14;
@@ -168,7 +169,7 @@
 .watch-intro .watch-content > p:last-child {
   margin: 25px 0 0;
   color: #e4e9dc;
-  font-size: 14px;
+  font-size: var(--type-copy);
   line-height: 1.55;
 }
 
@@ -224,7 +225,7 @@
 .watch-spotlight__copy .watch-eyebrow {
   margin-bottom: 20px;
   color: #3d6557;
-  font-size: 9px;
+  font-size: var(--type-eyebrow);
   letter-spacing: .06em;
 }
 
@@ -234,7 +235,7 @@
   margin: 0;
   color: var(--watch-green);
   font-family: var(--serif);
-  font-size: clamp(34px, 3.2vw, 46px);
+  font-size: var(--type-section);
   font-weight: 400;
   letter-spacing: -.025em;
   line-height: 1.14;
@@ -248,7 +249,7 @@
   max-width: 425px;
   margin: 22px 0 20px;
   color: #617267;
-  font-size: 13px;
+  font-size: var(--type-copy);
   line-height: 1.65;
 }
 
@@ -266,7 +267,7 @@
   display: block;
   margin-top: 22px;
   color: #68796e;
-  font-size: 10px;
+  font-size: var(--type-small);
 }
 
 .watch-audio {
@@ -277,7 +278,7 @@
 .watch-audio > .watch-content > .watch-eyebrow {
   margin-bottom: 27px;
   color: #386555;
-  font-size: 9px;
+  font-size: var(--type-eyebrow);
   letter-spacing: .08em;
 }
 
@@ -290,12 +291,12 @@
 }
 
 .watch-audio__heading h2 {
-  font-size: clamp(36px, 3.3vw, 48px);
+  font-size: var(--type-section);
 }
 
 .watch-audio__heading > span {
   color: #637565;
-  font-size: 11px;
+  font-size: var(--type-body);
 }
 
 .watch-audio__layout {
@@ -309,7 +310,7 @@
   margin: 0;
   color: var(--watch-green);
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: var(--type-card);
   font-weight: 400;
   line-height: 1.18;
 }
@@ -318,7 +319,7 @@
   max-width: 340px;
   margin: 19px 0 20px;
   color: #66776c;
-  font-size: 12px;
+  font-size: var(--type-body);
   line-height: 1.6;
 }
 
@@ -346,21 +347,21 @@
 .watch-audio-card__number {
   color: var(--watch-green);
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: var(--type-card);
 }
 
 .watch-audio-card__copy h3 {
   margin: 0;
   color: var(--watch-green);
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: var(--type-card-compact);
   font-weight: 400;
 }
 
 .watch-audio-card__copy p {
   margin: 7px 0 0;
   color: #68796f;
-  font-size: 10px;
+  font-size: var(--type-small);
 }
 
 .watch-audio-card__play {
@@ -378,18 +379,18 @@
 .watch-together .watch-eyebrow {
   margin-bottom: 22px;
   color: #386555;
-  font-size: 9px;
+  font-size: var(--type-eyebrow);
   letter-spacing: .07em;
 }
 
 .watch-together h2 {
-  font-size: clamp(38px, 3.45vw, 50px);
+  font-size: var(--type-section-large);
 }
 
 .watch-together .watch-content > p:not(.watch-eyebrow) {
   margin: 18px 0 21px;
   color: #6c7a6e;
-  font-size: 13px;
+  font-size: var(--type-copy);
 }
 
 .watch-together .watch-button {
@@ -425,7 +426,7 @@
 .watch-footer__column h2 {
   margin: 0 0 17px;
   color: var(--watch-green);
-  font-size: 11px;
+  font-size: var(--type-caption);
   font-weight: 500;
 }
 
@@ -434,7 +435,7 @@
   width: fit-content;
   margin-top: 12px;
   color: #5b7064;
-  font-size: 10px;
+  font-size: var(--type-small);
   text-decoration: none;
 }
 
@@ -445,7 +446,7 @@
   align-items: center;
   justify-content: space-between;
   color: #627568;
-  font-size: 9px;
+  font-size: 8px;
 }
 
 .watch-footer__bottom > span:last-child {
@@ -478,11 +479,11 @@
   }
 
   .watch-brand__name {
-    font-size: 21px;
+    font-size: var(--type-brand);
   }
 
   .watch-brand__tagline {
-    font-size: 9px;
+    font-size: var(--type-tagline);
   }
 
   .watch-nav {
@@ -490,12 +491,12 @@
   }
 
   .watch-nav a {
-    font-size: 10px;
+    font-size: var(--type-nav);
   }
 
   .watch-header__cta {
     padding-inline: 13px;
-    font-size: 10px;
+    font-size: var(--type-header-button);
   }
 
   .watch-intro {
@@ -503,7 +504,7 @@
   }
 
   .watch-intro h1 {
-    font-size: clamp(44px, 6vw, 56px);
+    font-size: var(--type-hero);
   }
 
   .watch-spotlight {
@@ -516,7 +517,7 @@
   }
 
   .watch-spotlight__copy h2 {
-    font-size: clamp(28px, 3vw, 34px);
+    font-size: var(--type-section);
   }
 
   .watch-audio {
@@ -553,11 +554,11 @@
   }
 
   .watch-brand__name {
-    font-size: 22px;
+    font-size: var(--type-brand);
   }
 
   .watch-brand__tagline {
-    font-size: 9.5px;
+    font-size: var(--type-tagline);
   }
 
   .watch-menu-toggle {
@@ -605,7 +606,7 @@
   .watch-nav a {
     padding: 13px 4px;
     border-bottom: 1px solid #ece5d7;
-    font-size: 12px;
+    font-size: var(--type-nav);
   }
 
   .watch-intro {
@@ -618,13 +619,13 @@
   }
 
   .watch-intro h1 {
-    font-size: clamp(39px, 9.4vw, 52px);
+    font-size: var(--type-hero);
     line-height: 1.12;
   }
 
   .watch-intro .watch-content > p:last-child {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: var(--type-body);
   }
 
   .watch-intro__desktop-break {
@@ -655,7 +656,7 @@
   }
 
   .watch-spotlight__copy h2 {
-    font-size: 37px;
+    font-size: var(--type-section);
   }
 
   .watch-spotlight__copy h2 > span {
@@ -672,13 +673,13 @@
   }
 
   .watch-audio__heading h2 {
-    font-size: 35px;
+    font-size: var(--type-section);
   }
 
   .watch-audio__heading > span {
     display: block;
     margin-top: 9px;
-    font-size: 10px;
+    font-size: var(--type-small);
   }
 
   .watch-audio__layout {
@@ -687,7 +688,7 @@
   }
 
   .watch-audio__intro h3 {
-    font-size: 27px;
+    font-size: var(--type-card);
   }
 
   .watch-audio__list {
@@ -707,11 +708,11 @@
   }
 
   .watch-audio-card__copy h3 {
-    font-size: 17px;
+    font-size: var(--type-card-compact);
   }
 
   .watch-audio-card__copy p {
-    font-size: 9px;
+    font-size: var(--type-caption);
     line-height: 1.4;
   }
 
@@ -721,7 +722,7 @@
   }
 
   .watch-together h2 {
-    font-size: 37px;
+    font-size: var(--type-section-large);
   }
 
   .watch-together .watch-content > p:not(.watch-eyebrow) {
