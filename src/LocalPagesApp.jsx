@@ -4,7 +4,11 @@ import activitiesHeroImage from './assets/family-photo.png'
 import noahImage from './assets/watch-noah-enhanced.png'
 import davidImage from './assets/story-2.png'
 import creationImage from './assets/story-3.png'
+import bibleNoahImage from './assets/bible-noah.png'
+import bibleDavidImage from './assets/bible-david.png'
+import bibleCreationImage from './assets/bible-creation.png'
 import familyReadingImage from './assets/family-photo.png'
+import zoetalesLogo from './assets/zoetales-emblem.png'
 
 const navigation = [
   { label: 'Home', href: '/#home', view: 'home' },
@@ -23,7 +27,7 @@ const stories = [
     title: 'Noah & the great adventure',
     description: 'Discover what happens when we trust God',
     action: 'Watch story',
-    image: noahImage,
+    image: bibleNoahImage,
   },
   {
     ages: '1 Samuel 17 · Courage',
@@ -32,7 +36,7 @@ const stories = [
     title: 'David & a courageous heart',
     description: 'A little faith can face the biggest giants',
     action: 'Watch story',
-    image: davidImage,
+    image: bibleDavidImage,
   },
   {
     ages: 'Genesis 1–2 · Wonder',
@@ -41,7 +45,7 @@ const stories = [
     title: 'The wonder of creation',
     description: 'Discover the beautiful world God made',
     action: 'Watch story',
-    image: creationImage,
+    image: bibleCreationImage,
   },
 ]
 
@@ -85,11 +89,14 @@ function ArrowIcon({ diagonal = false }) {
   )
 }
 
-function Brand() {
+function Brand({ footer = false }) {
   return (
-    <a className="brand" href="/#home" aria-label="Zoetales home">
-      <span className="brand-name">ZOETALES</span>
-      <span className="brand-tagline">Bringing God&apos;s Word to life</span>
+    <a className={`brand${footer ? ' brand--footer' : ''}`} href="/#home" aria-label="Zoetales home">
+      <img className="brand-logo" src={zoetalesLogo} alt="" />
+      <span className="brand-copy">
+        <span className="brand-name">ZOETALES</span>
+        <span className="brand-tagline">Little Stories. Eternal Truths. A Lifetime of Faith.</span>
+      </span>
     </a>
   )
 }
@@ -463,7 +470,7 @@ function Footer({ view }) {
   return (
     <footer className="site-footer" id={view === 'home' ? 'contact' : undefined}>
       <div className="footer-inner">
-        <div><Brand /><p className="footer-tagline">Little stories for the biggest journey of all.</p></div>
+        <div><Brand footer /><p className="footer-tagline">Little stories for the biggest journey of all.</p></div>
         <div className="footer-links"><strong>Discover</strong><a href="/bible-stories/#stories">Bible Stories</a><a href="/watch-listen.html">Watch &amp; Listen</a><a href="/activities/#explore">Explore &amp; Learn</a></div>
         <div className="footer-links"><strong>ZOETALES</strong><a href="/about-us.html">About Us</a><a href="/contact/">Contact</a><a href="/activities/#explore">For Parents &amp; Teachers</a></div>
         <div className="footer-links"><strong>Stay connected</strong><a href="#youtube">YouTube <span>↗</span></a><a href="#instagram">Instagram <span>↗</span></a><a href="#facebook">Facebook <span>↗</span></a></div>
