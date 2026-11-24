@@ -5,16 +5,15 @@ import storyTwo from './assets/story-2.png'
 import storyThree from './assets/story-3.png'
 import familyImage from './assets/family-photo.png'
 import zoetalesLogo from './assets/zoetales-emblem.png'
-import ActivitiesPage from './ActivitiesPage.jsx'
 import './App.css'
 
 const navigation = [
   ['Home', '/#home'],
-  ['Bible Stories', '/#stories'],
+  ['Bible Stories', '/bible-stories/#stories'],
   ['Watch & Listen', '/watch-listen.html'],
-  ['Explore & Learn', '/activities#explore'],
+  ['Explore & Learn', '/activities/#explore'],
   ['About Us', '/about-us.html'],
-  ['Contact', '/#contact'],
+  ['Contact', '/contact/'],
 ]
 
 const stories = [
@@ -61,7 +60,7 @@ function Header({ menuOpen, setMenuOpen }) {
         <nav className={`primary-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
           {navigation.map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </nav>
-        <a className="button button--gold header-cta" href="/#stories">Explore Stories <Arrow /></a>
+        <a className="button button--gold header-cta" href="/bible-stories/#stories">Explore Stories <Arrow /></a>
       </div>
     </header>
   )
@@ -77,7 +76,7 @@ function HomePage() {
           <p className="hero-script">Bringing God&apos;s Word to Life.</p>
           <p className="hero-description">A world of Bible stories, joyful songs and wonder-filled adventures. Made for little explorers. Rooted in God&apos;s love.</p>
           <div className="hero-actions">
-            <a className="button button--gold" href="#stories">Explore Bible Stories <Arrow diagonal /></a>
+            <a className="button button--gold" href="/bible-stories/#stories">Explore Bible Stories <Arrow diagonal /></a>
             <a className="button button--light" href="/watch-listen.html">Watch the wonder <Arrow diagonal /></a>
           </div>
           <p className="hero-note">Faith-filled fun for ages 3–12 <span>·</span> Made for growing hearts</p>
@@ -100,7 +99,7 @@ function HomePage() {
             <h2>Extraordinary stories. <em>Everyday faith.</em></h2>
             <p className="section-intro">Big lessons in courage, kindness and trusting God, one adventure at a time.</p>
           </div>
-          <a className="text-link" href="#story-collection">View all stories <Arrow /></a>
+          <a className="text-link" href="/bible-stories/#stories">View all stories <Arrow /></a>
         </div>
         <div className="story-grid" id="story-collection">
           {stories.map((story) => (
@@ -130,7 +129,7 @@ function HomePage() {
               <p className="learning-number">{card.number} <span>/</span> {card.label}</p>
               <h3>{card.title}</h3>
               <p>{card.text}</p>
-              <a href={card.className === 'yellow' ? '/activities#explore' : '/watch-listen.html'}>{card.link} <Arrow /></a>
+              <a href={card.className === 'yellow' ? '/activities/#explore' : '/watch-listen.html'}>{card.link} <Arrow /></a>
             </article>
           ))}
         </div>
@@ -147,7 +146,7 @@ function HomePage() {
             <li>Wholesome entertainment for growing hearts</li>
             <li>Resources for home, church and the classroom</li>
           </ul>
-          <a className="button button--teal" href="/activities#explore">Explore &amp; Learn <Arrow /></a>
+          <a className="button button--teal" href="/activities/#explore">Explore &amp; Learn <Arrow /></a>
         </div>
       </section>
 
@@ -188,23 +187,22 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-inner section-wrap">
         <div className="footer-brand"><Brand footer /></div>
-        <div><h4>Discover</h4><a href="/#stories">Bible Stories</a><a href="/watch-listen.html">Watch &amp; Listen</a><a href="/activities#explore">Explore &amp; Learn</a></div>
-        <div><h4>ZOETALES</h4><a href="/about-us.html">About Us</a><a href="/#contact">Contact</a><a href="/activities#explore">For parents &amp; teachers</a></div>
-        <div><h4>Stay connected</h4><a href="/#contact">YouTube ↗</a><a href="/#contact">Instagram ↗</a><a href="/#contact">Facebook ↗</a></div>
+        <div><h4>Discover</h4><a href="/bible-stories/#stories">Bible Stories</a><a href="/watch-listen.html">Watch &amp; Listen</a><a href="/activities/#explore">Explore &amp; Learn</a></div>
+        <div><h4>ZOETALES</h4><a href="/about-us.html">About Us</a><a href="/contact/">Contact</a><a href="/activities/#explore">For parents &amp; teachers</a></div>
+        <div><h4>Stay connected</h4><a href="/contact/">YouTube ↗</a><a href="/contact/">Instagram ↗</a><a href="/contact/">Facebook ↗</a></div>
       </div>
-      <div className="footer-bottom section-wrap"><span>© 2026 ZOETALES. All rights reserved.</span><span><a href="/#contact">Privacy Policy</a><a href="/#contact">Terms of Use</a></span></div>
+      <div className="footer-bottom section-wrap"><span>© 2026 ZOETALES. All rights reserved.</span><span><a href="/contact/">Privacy Policy</a><a href="/contact/">Terms of Use</a></span></div>
     </footer>
   )
 }
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const isActivitiesPage = window.location.pathname.replace(/\/+$/, '') === '/activities'
 
   return (
     <>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      {isActivitiesPage ? <ActivitiesPage /> : <HomePage />}
+      <HomePage />
       <Footer />
     </>
   )
