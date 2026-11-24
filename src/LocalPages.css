@@ -1,6 +1,35 @@
 :root {
+  --cream: #fff6e7;
+  --white: #fffdf8;
   --paper: var(--white);
+  --forest: #115246;
+  --forest-dark: #092f2a;
+  --ink: #183f37;
+  --gold: #e8ab32;
   --gold-dark: #a87428;
+  --sage: #e9edda;
+  --muted: #718077;
+  --sans: "Segoe UI", Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --type-nav: 10px;
+  --type-brand: 32px;
+  --type-eyebrow: 8.5px;
+  --type-caption: 9px;
+  --type-small: 10px;
+  --type-tagline: 12px;
+  --type-button: 11px;
+  --type-header-button: 11px;
+  --type-body: 12px;
+  --type-body-small: 11px;
+  --type-copy: 13px;
+  --type-card-copy: 9.5px;
+  --type-hero-script: 21px;
+  --type-feature: 28px;
+  --type-hero: clamp(40px, 4.4vw, 64px);
+  --type-section: 39px;
+  --type-section-large: 46px;
+  --type-card: 23px;
+  --type-card-compact: 20px;
 }
 
 * { box-sizing: border-box; }
@@ -1273,6 +1302,14 @@ a { color: inherit; }
 }
 
 @media (max-width: 900px) {
+  :root {
+    --type-nav: 9px;
+    --type-brand: 21px;
+    --type-card: 20px;
+    --type-tagline: 9px;
+    --type-header-button: 10px;
+  }
+
   .header-inner,
   .section-inner,
   .feature-inner,
@@ -1316,6 +1353,17 @@ a { color: inherit; }
 }
 
 @media (max-width: 700px) {
+  :root {
+    --type-nav: 12px;
+    --type-brand: 22px;
+    --type-hero: clamp(38px, 11vw, 48px);
+    --type-section: 34px;
+    --type-section-large: 38px;
+    --type-tagline: 9.5px;
+    --type-card-compact: 17px;
+    --type-feature: 25px;
+  }
+
   .site-header,
   .header-inner {
     height: 72px;
