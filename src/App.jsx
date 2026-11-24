@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import heroImage from './assets/hero-art.png'
-import storyOne from './assets/story-1.png'
-import storyTwo from './assets/story-2.png'
-import storyThree from './assets/story-3.png'
+import homeNoahImage from './assets/home-noah.png'
+import homeDavidImage from './assets/home-david.png'
+import homeCreationImage from './assets/home-creation.png'
+import homeAnimatedStoryBadge from './assets/home-animated-story-badge.png'
 import familyImage from './assets/family-photo.png'
 import zoetalesLogo from './assets/zoetales-emblem.png'
 import './App.css'
@@ -17,9 +18,9 @@ const navigation = [
 ]
 
 const stories = [
-  { title: 'Noah & the great adventure', reference: 'Genesis 6–9', theme: 'TRUST', meta: '8 min', image: storyOne },
-  { title: 'David & a courageous heart', reference: '1 Samuel 17', theme: 'COURAGE', meta: '7 min', image: storyTwo },
-  { title: 'The wonder of creation', reference: 'Genesis 1–2', theme: 'WONDER', meta: '6 min', image: storyThree },
+  { title: 'Noah & the great adventure', reference: 'Genesis 6–9', theme: 'TRUST', meta: '8 min', image: homeNoahImage, badge: homeAnimatedStoryBadge },
+  { title: 'David & a courageous heart', reference: '1 Samuel 17', theme: 'COURAGE', meta: '7 min', image: homeDavidImage, badge: homeAnimatedStoryBadge },
+  { title: 'The wonder of creation', reference: 'Genesis 1–2', theme: 'WONDER', meta: '6 min', image: homeCreationImage, badge: homeAnimatedStoryBadge },
 ]
 
 const learningCards = [
@@ -106,6 +107,7 @@ function HomePage() {
             <article className="story-card" key={story.title}>
               <div className="story-image">
                 <img src={story.image} alt="" />
+                {story.badge && <img className="story-badge" src={story.badge} alt="Animated story" />}
               </div>
               <div className="story-body">
                 <p className="story-meta">{story.reference.toUpperCase()} <span>•</span> {story.theme}</p>
