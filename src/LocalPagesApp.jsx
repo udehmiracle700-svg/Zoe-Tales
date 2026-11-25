@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import homeHeroImage from './assets/about-book-clean.png'
-import activitiesHeroImage from './assets/family-photo.png'
-import noahImage from './assets/watch-noah-enhanced.png'
-import davidImage from './assets/story-2.png'
-import creationImage from './assets/story-3.png'
+import activitiesHeroImage from './assets/faith-grows-together.png'
 import bibleNoahImage from './assets/bible-noah.png'
 import bibleDavidImage from './assets/bible-david.png'
 import bibleCreationImage from './assets/bible-creation.png'
@@ -57,7 +54,7 @@ const activities = [
     title: 'A rainbow to remember',
     description: "Bring Noah's story to life with a colorful reminder of God's promise.",
     action: 'View activity',
-    image: noahImage,
+    image: bibleNoahImage,
   },
   {
     label: 'Talk & wonder',
@@ -66,7 +63,7 @@ const activities = [
     title: 'My little courage cards',
     description: 'Make conversation cards about being brave and trusting God.',
     action: 'Family activity',
-    image: davidImage,
+    image: bibleDavidImage,
   },
   {
     label: 'Explore & discover',
@@ -75,7 +72,7 @@ const activities = [
     title: "God's creation treasure hunt",
     description: 'Head outdoors and notice the wonderful things God has made.',
     action: 'Nature activity',
-    image: creationImage,
+    image: bibleCreationImage,
   },
 ]
 
