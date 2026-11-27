@@ -1,0 +1,3 @@
+zoetales.uk {
+    reverse_proxy web:80
+}
